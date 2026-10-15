@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>AREAS</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <h1>AREAS</h1>
+    <p><a href="{% url 'area_cadastro' %}">CADASTRAR</a></p>
+    <P>LISTA DE AREAS</P>
+    {% for area in lista_areas %}
+    <p>{{ area.id }} {{ area.nome }} 
+        <a href="{% url 'area_editar' area.id %}">EDITAR</a> | 
+        <a href="{% url 'area_remover' area.id %}">REMOVER</a>
+    </p>
+    {% empty %}
+    <p>NENHUMA AREA CADASTRADA</p>
+    {% endfor %}
+    <P><a href="{% url 'inicial' %}">VOLTAR</a></P>
+</body>
+</html>
