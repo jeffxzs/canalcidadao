@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block titulo %}Usuários | Denúncias{% endblock %}
+{% block conteudo %}
+<h1>Usuários</h1>
+<p><a href="{% url 'usuario_cadastro' %}">Novo usuário</a></p>
+
+<table border="1" cellpadding="6">
+    <thead>
+        <tr><th>ID</th><th>Nome</th><th>E-mail</th><th>CPF</th><th>Tipo</th><th>Situação</th><th>Cadastro</th><th>Ações</th></tr>
+    </thead>
+    <tbody>
+    {% for obj in lista %}
+        <tr>
+            <td>{{ obj.pk }}</td>
+            <td>{{ obj.nome }}</td>
+            <td>{{ obj.email }}</td>
+            <td>{{ obj.cpf }}</td>
+            <td>{{ obj.tipo_usuario }}</td>
+            <td>{% if obj.ativo %}Ativo{% else %}Inativo{% endif %}</td>
+            <td>{{ obj.data_cadastro|date:"d/m/Y" }}</td>
+            <td>
+                <a href="{% url 'usuario_editar' obj.pk %}">Editar</a> |
+                <a href="{% url 'usuario_remover' obj.pk %}">Remover</a>
+            </td>
+        </tr>
+    {% empty %}
+        <tr><td colspan="8">Nenhum usuário cadastrado ainda.</td></tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

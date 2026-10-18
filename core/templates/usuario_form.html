@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block titulo %}{% if editando %}Editar usuário{% else %}Novo usuário{% endif %} | Denúncias{% endblock %}
+{% block conteudo %}
+<h1>{% if editando %}Editar usuário{% else %}Novo usuário{% endif %}</h1>
+
+<form method="post" novalidate>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Salvar</button>
+    <a href="{% url 'usuario_lista' %}">Cancelar</a>
+</form>
+{% endblock %}

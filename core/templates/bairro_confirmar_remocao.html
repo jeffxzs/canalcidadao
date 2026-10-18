@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block titulo %}Remover bairro | Denúncias{% endblock %}
+{% block conteudo %}
+<h1>Remover bairro</h1>
+<p>Tem certeza de que quer remover o bairro <strong>{{ obj.nome }}</strong>? Esta ação não pode ser desfeita.</p>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Remover</button>
+    <a href="{% url 'bairro_lista' %}">Cancelar</a>
+</form>
+{% endblock %}

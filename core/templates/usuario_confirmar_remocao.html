@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block titulo %}Remover usuário | Denúncias{% endblock %}
+{% block conteudo %}
+<h1>Remover usuário</h1>
+<p>Tem certeza de que quer remover o usuário <strong>{{ obj.nome }}</strong>? Esta ação não pode ser desfeita.</p>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Remover</button>
+    <a href="{% url 'usuario_lista' %}">Cancelar</a>
+</form>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block titulo %}Remover categoria | Denúncias{% endblock %}
+{% block conteudo %}
+<h1>Remover categoria</h1>
+<p>Tem certeza de que quer remover a categoria <strong>{{ obj.nome }}</strong>? Esta ação não pode ser desfeita.</p>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Remover</button>
+    <a href="{% url 'categoria_lista' %}">Cancelar</a>
+</form>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block titulo %}Bairros | Denúncias{% endblock %}
+{% block conteudo %}
+<h1>Bairros</h1>
+<p><a href="{% url 'bairro_cadastro' %}">Novo bairro</a></p>
+
+<table border="1" cellpadding="6">
+    <thead>
+        <tr><th>ID</th><th>Nome</th><th>Descrição</th><th>Ações</th></tr>
+    </thead>
+    <tbody>
+    {% for obj in lista %}
+        <tr>
+            <td>{{ obj.pk }}</td>
+            <td>{{ obj.nome }}</td>
+            <td>{{ obj.descricao|truncatechars:80 }}</td>
+            <td>
+                <a href="{% url 'bairro_editar' obj.pk %}">Editar</a> |
+                <a href="{% url 'bairro_remover' obj.pk %}">Remover</a>
+            </td>
+        </tr>
+    {% empty %}
+        <tr><td colspan="4">Nenhum bairro cadastrado ainda.</td></tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

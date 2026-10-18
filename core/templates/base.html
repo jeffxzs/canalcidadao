@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block titulo %}Denúncias{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <a href="{% url 'inicial' %}">Denúncias</a> |
+        <a href="{% url 'categoria_lista' %}">Categorias</a> |
+        <a href="{% url 'bairro_lista' %}">Bairros</a> |
+        <a href="{% url 'usuario_lista' %}">Usuários</a>
+        <hr>
+    </header>
+    <main>
+        {% if messages %}
+        <ul>
+            {% for m in messages %}<li>{{ m }}</li>{% endfor %}
+        </ul>
+        {% endif %}
+        {% block conteudo %}{% endblock %}
+    </main>
+</body>
+</html>
