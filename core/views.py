@@ -10,7 +10,6 @@ def inicial(request):
     return render(request, 'index.html')
 
 
-# ---------- CATEGORIA ----------
 def categoria_lista(request):
     lista = Categoria.objects.all().order_by('nome')
     return render(request, 'categoria_lista.html', {'lista': lista})
@@ -47,7 +46,6 @@ def categoria_remover(request, pk):
     return render(request, 'categoria_confirmar_remocao.html', {'obj': obj})
 
 
-# ---------- BAIRRO ----------
 def bairro_lista(request):
     lista = Bairro.objects.all().order_by('nome')
     return render(request, 'bairro_lista.html', {'lista': lista})
@@ -84,7 +82,6 @@ def bairro_remover(request, pk):
     return render(request, 'bairro_confirmar_remocao.html', {'obj': obj})
 
 
-# ---------- USUÁRIO ----------
 def usuario_lista(request):
     lista = Usuario.objects.all().order_by('nome')
     return render(request, 'usuario_lista.html', {'lista': lista})
