@@ -37,3 +37,39 @@ button {
 button:hover {
   background-color: #163a66;
 }
+header a, main a {
+  color: #1d4e89;
+  text-decoration: none;
+}
+
+header a {
+  font-weight: bold;
+}
+
+header a:hover, main a:hover {
+  text-decoration: underline;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #ccc;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border: none;
+}
+
+th, td {
+  padding: 8px;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+th {
+  background-color: #1d4e89;
+  color: #fff;
+}
