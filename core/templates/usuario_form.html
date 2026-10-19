@@ -2,7 +2,7 @@
 {% block titulo %}{% if editando %}Editar usuário{% else %}Novo usuário{% endif %} | Denúncias{% endblock %}
 {% block conteudo %}
 <h1>{% if editando %}Editar usuário{% else %}Novo usuário{% endif %}</h1>
-
+<p>Área de cadastro para novos usuários</p>
 <form method="post" novalidate>
     {% csrf_token %}
     {{ form.as_p }}

@@ -2,6 +2,7 @@
 {% block titulo %}{% if editando %}Editar bairro{% else %}Novo bairro{% endif %} | Denúncias{% endblock %}
 {% block conteudo %}
 <h1>{% if editando %}Editar bairro{% else %}Novo bairro{% endif %}</h1>
+<p>Área de cadastro de bairro</p>
 
 <form method="post" novalidate>
     {% csrf_token %}
